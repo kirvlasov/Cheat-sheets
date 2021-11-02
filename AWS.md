@@ -15,6 +15,6 @@
     - Always use MFA for the root user
     - Almost never use the root user for tasks that do not require the root user
 - S3 bucket deletion is absolutely irreversible (again, thanks to [Reddit](https://www.reddit.com/r/aws/comments/6ua8se/recovering_a_deleted_s3_bucket_is_there_any_way/))
-  - Enable [MFA Delete](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html); here is good [hands-on article](https://blog.james.rcpt.to/2017/04/29/s3-mfa-delete/). But this may interfer with Lifecycle Policy!
-  - Cross-region replication
-  - Specially tailored policy, restricting bucket removal for non-root users
+  - Enable [MFA Delete](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiFactorAuthenticationDelete.html); here is good [hands-on article](https://blog.james.rcpt.to/2017/04/29/s3-mfa-delete/). But it blocks the use of Lifecycle Policy and complicates the legitimate deletions.
+  - Use cross-region replication
+  - Set up tailored policy, restricting bucket removal for non-root users
