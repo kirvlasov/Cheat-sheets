@@ -1,5 +1,5 @@
 ## S3
-- Deletion of versioned file is **creation** of _Deletion marker_. This way, in some cases this marker acts as a matter of presence. E.g. recovering deleted file with enabled _MFA Delete_ requires MFA confirmation. Because you are trying to **remove** the Deletion marker.
+- Deletion of versioned file is **creation** of _Delete marker_. This way, in some cases this marker acts as a matter of presence. E.g. recovering deleted file with enabled _MFA Delete_ requires MFA confirmation. Because you are trying to **remove** the Delete marker.
 - Cross-region replication is limited to one hop. **A** -> **B**, **B** -> **C**, but not **A** -> **B** -> **C**!
 
 ## Gotchas
