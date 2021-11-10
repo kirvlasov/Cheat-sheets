@@ -1,4 +1,26 @@
 ## S3
+### Numbers
+
+Value |Description
+----- |-
+20KiB | Maximum resource [policy size](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-bucket-policies.html). If you don't fit, [use ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-alternatives-guidelines.html#when-to-use-acl).
+100   | Maximum number of ACL grants per object
+100MiB| Recommended threshold to start using [multipart upload](https://docs.aws.amazon.com/AmazonS3/latest/userguide/qfacts.html)
+5GiB  | Maximum single part size to upload (not recommended though)
+160GiB| Maximum single upload size through the AWS Console
+5TiB  | Maximum object size
+10000  | Maximum number of parts in multipart upload
+99.999999999% | Durability - probability of not losing your data per 1 year (excl. [Reduced Redundancy storage class](https://aws.amazon.com/s3/reduced-redundancy/))
+99.99%| Availability by design - probability of successfully accessing your data at the particular moment (_Standard_, _Glacier_, _RRS_)
+99.9% | Availability by design (_Standard-IA_, _Intelligent tiering_)
+99.5% | Availability by design (_One Zone-IA_)
+99.9% | Availability by [SLA](https://aws.amazon.com/s3/sla/) - threshold with real sanctions for AWS (_Standard_, _Glacier_, _RRS_)
+99.0% | Availability by SLA (_Standard-IA_, _Intelligent tiering_, _One Zone-IA_)
+10-100%| Credits returned to your account if uptime is [under SLA threshold](https://aws.amazon.com/legal/service-level-agreements/)
+3     | Minimal number of [availability zones](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html) to store your data (excl. One Zone-IA)
+100   | Soft limit on bucket count
+1000  | Hard limit on bucket count
+
 - Deletion of versioned file is **creation** of _Delete marker_. This way, in some cases this marker acts as a matter of presence. E.g. recovering deleted file with enabled _MFA Delete_ requires MFA confirmation. Because you are trying to **remove** the Delete marker.
 - Cross-region replication is limited to one hop. **A** -> **B**, **B** -> **C**, but not **A** -> **B** -> **C**!
 
